@@ -1,0 +1,79 @@
+body {
+	width: 90%;
+	margin: 0 auto;
+	background-color: lightcyan;
+}
+
+#lolLogo {
+	max-height: 10%;
+	max-width: 10%;
+}
+
+#header {
+	text-align: center;
+	font-family: arial;
+}
+
+#navMenu {
+	width: 100%;
+	font-size: 20px;
+}
+
+#navMenu th {
+	width: 25%;
+}
+
+#navMenu a {
+	color: blue;
+	text-decoration: inherit;
+}
+
+ul {
+	list-style: none;
+	width: 75%;
+	margin: auto;
+}
+
+li:nth-of-type(even) {
+	background-color: lightgrey;
+}
+
+li:nth-of-type(odd) {
+	background-color: lightblue;
+}
+
+li {
+	margin: 2%;
+	padding: 0;
+}
+
+.imgCell {
+	width: 5%;
+	text-align: center;
+}
+
+.imgCell img {
+	width: 75%;
+	height: auto;
+}
+
+.headCell {
+	width: 10%;
+	text-align: center;
+	font-size: 23px;
+	padding: 0px;
+}
+
+.dataCell {
+	text-align: center;
+	font-size: 20px;
+}
+
+#download {
+	text-align: center;
+}
+
+#citation {
+	font-size: 10px;
+	text-align: center;
+}

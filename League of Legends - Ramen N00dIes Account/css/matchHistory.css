@@ -1,0 +1,81 @@
+body {
+	width: 90%;
+	margin: 0 auto;
+	background-color: lightcyan;
+}
+
+#lolLogo {
+	max-height: 10%;
+	max-width: 10%;
+}
+
+#header {
+	text-align: center;
+	font-family: arial;
+}
+
+#navMenu {
+	width: 100%;
+	font-size: 20px;
+}
+
+#navMenu th {
+	width: 25%;
+}
+
+#navMenu a {
+	color: blue;
+	text-decoration: inherit;
+}
+
+h2 {
+	text-align: center;
+	font-size: 30px;
+}
+
+.matchHistTable{
+	width: 995px;
+	text-align: center;
+	margin: auto;
+	border-collapse: collapse;
+	font-size: 18px;
+}
+
+#matchHistHead th {
+	width: 25%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-decoration: underline;
+	font-size: 20px;
+}
+
+#matchHistGames {
+	height: 400px;
+	width: 1000px;
+	overflow-y: scroll;
+	display: block;
+}
+
+#matchHistGames td {
+	width: 250px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#matchHistGames td img{
+	width: 30%;
+	height: auto;
+}
+
+.victory {
+	background-color: lightgreen;
+}
+
+.defeat {
+	background-color: lightcoral;
+}
+
+#citation {
+	font-size: 10px;
+	text-align: center;
+}

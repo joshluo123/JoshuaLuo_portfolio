@@ -1,0 +1,72 @@
+body {
+	width: 90%;
+	margin: 0 auto;
+	background-color: lightcyan;
+}
+
+#lolLogo {
+	max-height: 10%;
+	max-width: 10%;
+}
+
+#header {
+	text-align: center;
+	font-family: arial;
+}
+
+#navMenu {
+	width: 100%;
+	font-size: 20px;
+}
+
+#navMenu th {
+	width: 25%;
+}
+
+#navMenu a {
+	color: blue;
+	text-decoration: inherit;
+}
+
+#rank_emblem {
+	text-align: center;
+}
+
+#rank_division{
+	width: 100%;
+	height: auto;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#emblem {
+	max-width: 15%;
+	height: auto;
+}
+
+#rank_stats {
+	width: 100%;
+
+}
+
+#rank_stats caption {
+	font-size: 18px;
+	text-decoration: underline;
+	margin-top: 2%;
+	margin-bottom: 1%;
+}
+
+#rank_stats th {
+	width: 33.3%;
+	text-align: center;
+}
+
+#rank_stats td {
+	width: 33.3%;
+	text-align: center;
+}
+
+#citation {
+	font-size: 10px;
+	text-align: center;
+}
