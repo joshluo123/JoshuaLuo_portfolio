@@ -2,6 +2,8 @@
 # Date: 7/31/2020
 # Description - Portfolio Project - implementation of the Black Box game
 
+import random
+
 
 class BlackBoxGame:
     """
@@ -97,7 +99,7 @@ class BlackBoxGame:
                 # entry/exit rays are interchangeable (have the same path)
                 self._ray_mem[ray.get_exit()] = ray.get_entry()
 
-    def print_board(self):
+    def print_board(self, show_atoms):
         """
         Prints a text representation of the game board.
         """
@@ -109,9 +111,11 @@ class BlackBoxGame:
                 a_row.append(" ")
             board.append(a_row)
 
-        # change the atom squares to "A"
-        for coordinate in self._atom_pos:
-            board[coordinate[0]][coordinate[1]] = "A"
+        # change the atom squares to "A" if show_atoms is True
+        if show_atoms:
+            for coordinate in self._atom_pos:
+                board[coordinate[0]][coordinate[1]] = "A"
+        # else: hides atom locations
 
         for ray in self._ray_mem:
             if self._ray_mem[ray] is None:
@@ -314,13 +318,20 @@ class Ray:
 
 
 def main():
-    game = BlackBoxGame([(3, 2), (1, 3), (4, 6), (4, 8)])
+    # randomly create 4 atom locations
+    atom_locations = []
+    while len(atom_locations) < 4:
+        atom_loc = (random.randint(1, 8), random.randint(1, 8))
+        if atom_loc not in atom_locations:
+            atom_locations.append(atom_loc)
+
+    game = BlackBoxGame(atom_locations)
     print("Score: ", game.get_score())
     print("Atoms remaining: ", game.atoms_left())
 
     while game.get_score() > 0 and game.atoms_left() > 0:
-        print("Board")
-        game.print_board()
+        print("Board:")
+        game.print_board(False)
 
         shoot = input("Shoot Ray? (y/n): ")
         if shoot == "y":
@@ -363,6 +374,9 @@ def main():
         print("Game Over")
     else:
         print("All atoms found")
+
+    print("Complete Board:")
+    game.print_board(True)
 
 
 if __name__ == "__main__":
