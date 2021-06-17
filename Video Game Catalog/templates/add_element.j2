@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Andrew Eppinger and Joshua Luo - Video Game Database</title>
+      <link rel="stylesheet" href="static/css/add_element.css" type="text/css">
+  </head>
+  <body>
+    <div class="topnav">
+    	<table id="crudTable">
+        <tr>
+          <td><a href="/">Catalog</a></td>
+          <td><a href="add">Add Something</a></td>
+          <td><a href="delete">Delete Something</a></td>
+          <td><a href="update">Update/Edit Something</a></td>
+      </table>
+    </div>
+
+    <h1>Add to Database</h1>
+    <h3 id="selHeader">Select what to add:</h3>
+    <br/>
+    <table id="selAddEleTable">
+      <tr>
+        <td><button type="button" id="selTitleAdd">Video Game Title</button></td>
+        <td><button type="button" id="selDevAdd">Development Studio</button></td>
+        <td><button type="button" id="selPlatAdd">Platform</button></td>
+        <td><button type="button" id="selFranchiseAdd">Franchise</button></td>
+    </table>
+
+    <br/>
+
+    <span class="sucessFailMessage" id="addSuccessful">Add Successful!</span>
+    <span class="sucessFailMessage" id="addFailed">Add Failed! The name of the Title/Studio/Platform/Franchise must be unique.</span>
+
+    <div id="addTitle">
+      <h2 class="addHeader">Add a Video Game Title</h2>
+      <table class="addTable">
+        <tr>
+          <th><span class="requiredMessage" id="noTitleName">*Required<br/></span>Title:</th>
+          <th><span class="requiredMessage" id="noTitlePlat">*Required<br/></span>Platforms:</th>
+          <th><span class="requiredMessage" id="noTitleDate">*Required<br/></span>Release Date:</th>
+          <th>Genre:</th>
+          <th>Franchise:</th>
+          <th><span class="requiredMessage" id="noTitleDev">*Required<br/></span>Developer:</th>
+          <th>ESRB Rating:</th>
+        <tr>
+          <td><input type="text" id="addTitleName"></td>
+          <td>
+            {% for plat in platforms %}
+            <input type="checkbox" class="addTitlePlatID" value={{plat[0]}}>{{plat[1]}}<br/>
+            {% endfor %}
+          </td>
+          <td><input type="date" id="addTitleDate"></td>
+          <td>
+            <select id="addTitleGenre">
+              <option></option>
+              <option value="Action">Action</option>
+              <option value="Action-Adventure">Action-Adventure</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Battle Royale">Battle Royale</option>
+              <option value="Fighting">Fighting</option>
+              <option value="First-Person Shooter">First-Person Shooter</option>
+              <option value="Massively Multiplayer Online Games">Massively Multiplayer Online Games</option>
+              <option value="Multiplayer Online Battle Arena">Multiplayer Online Battle Arena</option>
+              <option value="Platformer">Platformer</option>
+              <option value="Racing">Racing</option>
+              <option value="Real-Time Strategy">Real-Time Strategy</option>
+              <option value="Role-Playing Games">Role-Playing Games</option>
+              <option value="Sandbox/Open World">Sandbox/Open World</option>
+              <option value="Simulation">Simulation</option>
+              <option value="Sports">Sports</option>
+              <option value="Strategy">Strategy</option>
+              <option value="Survival">Survival</option>
+              <option value="Third-Person Shooter">Third-Person Shooter</option>
+              <option value="Other">Other</option>
+            </select>
+          </td>
+          <td>
+            <select id="addTitleFranchiseID">
+              <option></option>
+              {% for fran in franchises %}
+              <option value={{fran[0]}}>{{fran[1]}}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            <select id="addTitleDevID">
+              <option></option>
+              {% for dev in devs %}
+              <option value={{dev[0]}}>{{dev[1]}}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            <select id="titleESRB">
+              <option></option>
+              <option value="E">E - Everyone</option>
+              <option value="T">T - Teen</option>
+              <option value="M">M - Mature</option>
+            </select>
+          </td>
+        <tr>
+          <td colspan="7">*If a platform/franchise/developer isn't present, they must first be added seapartely</td>
+      </table>
+      <button type="button" class="addButton" id="addTitleButton">Add Title</button>
+      </table>
+    </div>
+
+    <div id="addDev">
+      <h2 class="addHeader">Add a Development Studio</h2>
+      <table class="addTable">
+        <tr>
+          <th><span class="requiredMessage" id="noDevName">*Required</span><br/>Developer Name:</th>
+          <th><span class="requiredMessage" id="noDevCountry">*Required</span><br/>Country:</th>
+          <th><span class="requiredMessage" id="noDevDate">*Required</span><br/>Founding Date:</th>
+        <tr>
+          <td><input type="text" id="addDevName"></td>
+          <td>
+            <select id="addDevCountry">
+              <option></option>
+              <option value="Australia">Australia</option>
+              <option value="Canada">Canada</option>
+              <option value="China">China</option>
+              <option value="Finland">Finland</option>
+              <option value="France">France</option>
+              <option value="Germany">Germany</option>
+              <option value="Italy">Italy</option>
+              <option value="Japan">Japan</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="Poland">Poland</option>
+              <option value="Russia">Russia</option>
+              <option value="South Korea">South Korea</option>
+              <option value="Spain">Spain</option>
+              <option value="Sweden">Sweden</option>
+              <option value="UK">UK</option>
+              <option value="USA">USA</option>
+              <option value="Other">Other</option>
+            </select>
+          </td>
+          <td><input type="date" id="addDevDate"></td>
+      </table>
+      <button type="button" class="addButton" id="addDevButton">Add Developer</button>                          
+    </div>
+
+    <div id="addPlat">
+      <h2 class="addHeader">Add a Platform</h2>
+      <table class="addTable">
+        <tr>
+          <th>Platform Name:</th>
+          <th>Release Date:</th>
+          <th>Platform Developer:</th>
+          <th>Platform In Production:</th>
+        <tr>
+          <td><input type="text" id="addPlatName"></td>
+          <td><input type="date" id="addPlatDate"></td>
+          <td>
+            <select id="addPlatDev">
+              <option></option>
+              <option value="Apple">Apple</option>
+              <option value="Atari">Atari</option>
+              <option value="Google">Google</option>
+              <option value="Microsoft">Microsoft</option>
+              <option value="Nintendo">Nintendo</option>
+              <option value="Sega">Sega</option>
+              <option value="Sony">Sony</option>
+            </select>
+          </td>
+          <td>
+            <input type="radio" class="addPlatInProd" name="platInProduction">Yes<br/>
+            <input type="radio" class="addPlatInProd" name="platInProduction">No<br/>
+          </td>
+      </table>
+      <button type="button" class="addButton" id="addPlatButton">Add Platform</button>
+    </div>
+
+    <div id="addFranchise">
+      <h2 class="addHeader">Add a Franchise</h2>
+      <table class="addTable">
+        <tr>
+          <th><span class="requiredMessage" id="noFranchiseName">*Required</span><br/>Franchise Name:</th>
+          <th><span class="requiredMessage" id="noFranchiseDev">*Required</span><br/>Franchise Developer:</th>
+        <tr>
+          <td><input type="text" id="addFranchiseName"></td>
+          <td>
+            <select id="addFranchiseDev">
+              <option></option>
+              {% for dev in devs %}
+              <option value={{dev[0]}}>{{dev[1]}}</option>
+              {% endfor %}
+            </select>
+          </td>
+      </table>
+      <button type="button" class="addButton" id="addFranchiseButton">Add Franchise</button>
+    </div>
+
+    <br/>
+    <br/>
+
+  	<script src="static/js/add_element.js"></script>
+  </body>
+</html>

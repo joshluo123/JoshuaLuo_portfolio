@@ -1,0 +1,99 @@
+body {
+	width: 75%;
+	margin: auto;
+}
+
+h1 {
+	border: 1px solid black;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.filterOptions {
+	border: 1px solid black;
+}
+
+.filterBy {
+	text-decoration: underline;
+}
+
+#crudTable {
+	margin: auto;
+	width: 80%;
+	text-align: center;
+}
+
+#crudTable td{
+	width: 20%;
+}
+
+#titlesTableHeader {
+	text-align: center;
+}
+
+#filterHeader {
+	margin: auto;
+}
+
+#filterTable {
+	width: 90%;
+	margin: auto;
+}
+
+#filterTable th {
+	padding-top: 5px;
+	width: 15%;
+	text-align: left;
+}
+
+#filterTable td {
+	width: 15%;
+}
+
+#filterButton {
+	margin-right: 5%;
+	float: right;
+}
+
+#titlesTable {
+	border-style: solid;
+	border-collapse: collapse;
+	text-align: center;
+	margin: auto;
+}
+
+#titlesTable th {
+	border-style: solid;
+	font-size: 20px;
+	padding: 10px;
+	text-decoration: underline;
+}
+
+#titlesTable td {
+	border-style: solid;
+	padding: 5px;
+}
+
+.platformList {
+	text-align: left;
+	list-style: none;
+	padding: 0;
+}

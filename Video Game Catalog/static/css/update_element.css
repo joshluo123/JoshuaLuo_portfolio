@@ -1,0 +1,170 @@
+body {
+	width: 75%;
+	margin: auto;
+	text-align: center;
+}
+
+h1 {
+	border: 1px solid black;
+}
+
+h2 {
+	text-decoration: underline;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#crudTable {
+	margin: auto;
+	width: 80%;
+	text-align: center;
+}
+
+#crudTable td{
+	width: 20%;
+}
+
+#searchHeader {
+	width: 90%;
+	text-align: left;
+	margin-bottom: 0;
+}
+
+.searchHeader {
+	margin-top: 0;
+}
+
+#selUpdateEleTable {
+	margin: auto;
+}
+
+#selUpdateEleTable td {
+	width: 15%;
+	margin: auto;
+}
+
+.searchTable {
+	border-collapse: collapse;
+}
+
+.searchTable th {
+	text-align: left;
+}
+
+.searchTable td {
+	width: 10%;
+	vertical-align: top;
+	text-align: left;
+	padding: 5px;
+}
+
+.searchButton {
+	float: right;
+	margin-top: 5px;
+}
+
+#updateTitleSearch {
+	display: none;
+	border: 1px solid black;
+}
+
+#updateDevSearch {
+	display: none;
+	border: 1px solid black;
+}
+
+#updatePlatSearch {
+	display: none;
+	border: 1px solid black;
+}
+
+#updateFranchiseSearch {
+	display: none;
+	border: 1px solid black;
+}
+
+#searchResults {
+	display: none;
+}
+
+#searchResHeader {
+	margin-top: 0;
+}
+
+#searchResultTable {
+	border-style: solid;
+	border-collapse: collapse;
+	text-align: center;
+	margin: auto;
+}
+
+#searchResultTable th {
+	border-style: solid;
+	font-size: 20px;
+	padding: 10px;
+	text-decoration: underline;
+}
+
+#searchResultTable td {
+	border-style: solid;
+	padding: 5px;
+}
+
+.platformList {
+	text-align: left;
+	list-style: none;
+	padding: 0;
+}
+
+.successFailMessage {
+	text-align: right;
+	display: none;
+}
+
+.searchResultRow {
+	text-align: center;
+}
+
+.saveTitleButton {
+	display: none;
+}
+
+.saveDevButton {
+	display: none;
+}
+
+.savePlatButton {
+	display: none;
+}
+
+.saveFranchiseButton {
+	display: none;
+}
+
+#noTitlePlatOrDate {
+	display: none;
+	color: red;
+	float: left;
+}
+
+.requiredMessage {
+	color: red;
+}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+ 		<meta charset="UTF-8">
+ 		<title>Andrew Eppinger and Joshua Luo - Video Game Database</title>
+ 		<link rel="stylesheet" href="static/css/update_element.css" type="text/css">
+ 	</head>
+ 	<body>
+    <div class="topnav">
+  		<table id="crudTable">
+        <tr>
+          <td><a href="/">Catalog</a></td>
+          <td><a href="add">Add Something</a></td>
+          <td><a href="delete">Delete Something</a></td>
+          <td><a href="update">Update/Edit Something</a></td>
+      </table>
+    </div>
+
+    <h1>Update in Database</h1>
+    <h3 id="searchHeader">Select what to update:</h3>
+    <br/>
+    <table id="selUpdateEleTable">
+    <tr>
+        <td><button type="button" id="selTitleSearch">Video Game Title</button></td>
+        <td><button type="button" id="selDevSearch">Development Studio</button></td>
+        <td><button type="button" id="selPlatSearch">Platform</button></td>
+        <td><button type="button" id="selFranchiseSearch">Franchise</button></td>
+    </table>
+
+    <br/>
+
+    <div id="updateTitleSearch">
+      <h2 class="searchHeader">Search for a Video Game Title</h2>
+      <table class="searchTable">
+        <tr>
+          <th>Title:</th>
+          <th>Platform:</th>
+          <th>Release Date:</th>
+          <th>Genre:</th>
+          <th>Franchise:</th>
+          <th>Developer:</th>
+          <th>ESRB Rating:</th>
+        <tr>
+          <td>
+            <input type="text" id="searchTitleName">
+          </td>
+          <td>
+            <select id="searchTitlePlatID">
+              <option></option>
+              {% for plat in platforms %}
+              <option value="{{plat[0]}}">{{plat[1]}}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            From:<br/><input type="date" id="searchTitleFromDate"><br/>To:<br/><input type="date" id="searchTitleToDate">
+          </td>
+          <td>
+            <select id="searchTitleGenre">
+              <option></option>
+              <option value="Action">Action</option>
+              <option value="Action-Adventure">Action-Adventure</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Battle Royale">Battle Royale</option>
+              <option value="Fighting">Fighting</option>
+              <option value="First-Person Shooter">First-Person Shooter</option>
+              <option value="Massively Multiplayer Online Games">Massively Multiplayer Online Games</option>
+              <option value="Multiplayer Online Battle Arena">Multiplayer Online Battle Arena</option>
+              <option value="Platformer">Platformer</option>
+              <option value="Racing">Racing</option>
+              <option value="Real-Time Strategy">Real-Time Strategy</option>
+              <option value="Role-Playing Games">Role-Playing Games</option>
+              <option value="Sandbox/Open World">Sandbox/Open World</option>
+              <option value="Simulation">Simulation</option>
+              <option value="Sports">Sports</option>
+              <option value="Strategy">Strategy</option>
+              <option value="Survival">Survival</option>
+              <option value="Third-Person Shooter">Third-Person Shooter</option>
+              <option value="Other">Other</option>
+            </select>
+          </td>
+          <td>
+            <select id="searchTitleFranchiseID">
+              <option></option>
+              {% for fran in franchises %}
+              <option value={{fran[0]}}>{{fran[1]}}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            <select id="searchTitleDevID">
+              <option></option>
+              {% for dev in devs %}
+              <option value={{dev[0]}}>{{dev[1]}}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            <select id="searchTitleESRB">
+              <option></option>
+              <option value="E">E - Everyone</option>
+              <option value="T">T - Teen</option>
+              <option value="M">M - Mature</option>
+            </select>
+          </td>
+      </table>
+      <button type="button" class="searchButton" id="searchTitleButton">Search</button>
+    </div>
+
+    <div id="updateDevSearch">
+      <h2 class="searchHeader">Search for a Development Studio</h2>
+      <table class="searchTable">
+        <tr>
+          <th>Developer Name:</th>
+          <th>Country:</th>
+          <th>Founding Date:</th>
+        <tr>
+          <td>
+            <input type="text" id="searchDevName">
+          </td>
+          <td>
+            <select id="searchDevCountry">
+              <option></option>
+              <option value="Canada">Canada</option>
+              <option value="France">France</option>
+              <option value="Japan">Japan</option>
+              <option value="Poland">Poland</option>
+              <option value="Russia">Russia</option>
+              <option value="South Korea">South Korea</option>
+              <option value="Sweden">Sweden</option>
+              <option value="UK">UK</option>
+              <option value="USA">USA</option>
+              <option value="Other">Other</option>
+            </select>
+          </td>
+          <td>From:<br/><input type="date" id="searchDevFromDate"><br/>To:<br/><input type="date" id="searchDevToDate"></td>
+      </table>
+      <button type="button" class="searchButton" id="searchDevButton">Search</button>                          
+    </div>
+
+    <div id="updatePlatSearch">
+      <h2 class="searchHeader">Search for a Platform</h2>
+      <table class="searchTable">
+        <tr>
+          <th>Platform Name:</th>
+          <th>Release Date:</th>
+          <th>Platform Developer:</th>
+          <th>Platform In Production:</th>
+        <tr>
+          <td>
+            <input type="text" id="searchPlatName">
+          </td>
+          <td>
+            From:<br/><input type="date" id="searchPlatFromDate"><br/>To:<br/><input type="date" id="searchPlatToDate">
+          </td>
+          <td>
+            <select id="searchPlatDev">
+              <option></option>
+              {% for dev in platDev %}
+              <option value="{{dev[0]}}">{{dev[0]}}</option>
+              {% endfor %}
+            </select>
+          </td>
+          <td>
+            <input type="radio" name="searchPlatInProduction" class="searchPlatInProd" value="Yes">Yes<br/>
+            <input type="radio" name="searchPlatInProduction" class="searchPlatInProd" value="No">No<br/>
+            <input type="radio" name="searchPlatInProduction" class="searchPlatInProd" value="Any">Any<br/>
+          </td>
+      </table>
+      <button type="button" class="searchButton" id="searchPlatButton">Search</button>
+    </div>
+
+    <div id="updateFranchiseSearch">
+      <h2 class="searchHeader">Search for a Franchise</h2>
+      <table class="searchTable">
+        <tr>
+          <th>Franchise Name:</th>
+          <th>Franchise Developer:</th>
+        <tr>
+          <td>
+            <input type="text" id="searchFranchiseName">
+          </td>
+          <td>
+            <select id="searchFranchiseDev">
+              <option></option>
+              {% for dev in franchiseDev %}
+              <option value="{{dev[0]}}">{{dev[0]}}</option>
+              {% endfor %}
+            </select>
+          </td>
+      </table>
+      <button type="button" class="searchButton" id="searchFranchiseButton">Search</button>
+    </div>
+
+    <br/>
+    <br/>
+
+    <span class="successFailMessage" id="updateSuccessful">Update Successful!</span>
+    <span class="successFailMessage" id="updateFailed">Update Failed! The name of the Title/Studio/Platform/Franchise must be unique.</span>
+
+    <div id="searchResults">
+      <h2 id="searchResHeader">Search Results</h2>
+
+      <div class="requiredMessage" id="missingTitleInputs">
+        *Required: the Title name can't be blank, at least one platform must be checked, and a release date must be selected
+      </div>
+      <div clas="requiredMessage" id="missingDevInputs">
+        *Required: the Development Studio name can't be blank, and a founding date must be selected
+      </div>
+      <div clas="requiredMessage" id="missingPlatInputs">
+        *Required: the Platform name can't be blank, and a release date must be selected
+      </div>
+      <div clas="requiredMessage" id="missingFranchiseInputs">
+        *Required: the Franchise name can't be blank
+      </div>
+
+      <table id="searchResultTable">
+      </table>
+    </div>
+
+    <br/>
+    <br/>
+
+   		<script src="static/js/update_element.js"></script>
+ 	</body>
+</html>

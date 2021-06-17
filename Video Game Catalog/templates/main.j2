@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Andrew Eppinger and Joshua Luo - Video Game Database</title>
+    <link rel="stylesheet" href="static/css/main.css" type="text/css">
+ 	</head>
+ 	<body>
+    <div class="topnav">
+  		<table id="crudTable">
+        <tr>
+          <td><a href="/">Catalog</a></td>
+          <td><a href="add">Add Something</a></td>
+          <td><a href="delete">Delete Something</a></td>
+          <td><a href="update">Update/Edit Something</a></td>
+      </table>
+    </div>
+
+    <h1 id="titlesTableHeader">Video Game Catalog</h1>
+		<h3 id="filterHeader">Filter Options:</h3>
+    <div class="filterOptions"></div>
+		<table id="filterTable">
+			<tr>
+		  <th class="filterBy">Title Name</th>
+        <th class="filterBy">Platform:</th>
+        <th class="filterBy">Release Date:</th>
+        <th class="filterBy">Genre:</th>
+        <th class="filterBy">Franchise:</th>
+        <th class="filterBy">Developer:</th>
+        <th class="filterBy">ESRB Rating:</th>
+      <tr>
+      	<td>
+          <input type="text" id="searchTitleName">
+        </td>
+        <td>
+					<select id="searchTitlePlat">
+						<option></option>
+            {% for plat in platforms %}
+            <option value={{plat[0]}}>{{plat[1]}}</option>
+            {% endfor %}
+					</select>
+				</td>
+				<td>
+					From:<br/><input type="date" id="titleFromDate"><br/>To:<br/><input type="date" id="titleToDate">
+				</td>
+				<td>
+					<select id="titleGenre">
+						<option></option>
+						<option value="Action">Action</option>
+						<option value="Action-Adventure">Action-Adventure</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Battle Royale">Battle Royale</option>
+            <option value="Fighting">Fighting</option>
+            <option value="First-Person Shooter">First-Person Shooter</option>
+            <option value="Massively Multiplayer Online Games">Massively Multiplayer Online Games</option>
+            <option value="Multiplayer Online Battle Arena">Multiplayer Online Battle Arena</option>
+            <option value="Platformer">Platformer</option>
+            <option value="Racing">Racing</option>
+            <option value="Real-Time Strategy">Real-Time Strategy</option>
+            <option value="Role-Playing Games">Role-Playing Games</option>
+            <option value="Sandbox/Open World">Sandbox/Open World</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Sports">Sports</option>
+            <option value="Strategy">Strategy</option>
+            <option value="Survival">Survival</option>
+            <option value="Third-Person Shooter">Third-Person Shooter</option>
+            <option value="Other">Other</option>
+          </select>
+				</td>
+				<td>
+					<select id="titleFranchise">
+						<option></option>
+            {% for fran in franchises %}
+            <option value={{fran[0]}}>{{fran[1]}}</option>
+            {% endfor %}
+          </select>
+				</td>
+        <td>
+          <select id="titleDev">
+            <option></option>
+            {% for dev in devs %}
+            <option value={{dev[0]}}>{{dev[1]}}</option>
+            {% endfor %}
+          </select>
+        </td>
+				<td>
+					<select id="titleESRB">
+						<option></option>
+						<option value="E">E - Everyone</option>
+						<option value="T">T - Teen</option>
+						<option value="M">M - Mature</option>
+          </select>
+				</td>
+		</table>
+		<button type="button" id="filterButton">Filter</button>
+
+		<br/>
+		<br/>
+
+		<table id="titlesTable">
+			<tr>
+				<th>Title</th>
+				<th>Platforms</th>
+				<th>Release Date<br/>(North America)</th>
+				<th>Genre</th>
+				<th>Franchise</th>
+				<th>Developer</th>
+				<th>ESRB Rating</th>
+      
+        {% for t in titles %}
+        <tr class="searchResultRow">
+          <td>{{ t[1] }}</td>
+          <td>
+            <ul class="platformList">
+              {% for p in t[7] %}
+              <li>{{ p }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td>{{ t[2] }}</td>
+          <td>{{ t[3] }}</td>
+          <td>{{ t[4] }}</td>
+          <td>{{ t[5] }}</td>
+          <td>{{ t[6] }}</td>
+        {% endfor %}
+
+		</table>
+   	<script src="static/js/main.js"></script>
+ 	</body>
+</html>
