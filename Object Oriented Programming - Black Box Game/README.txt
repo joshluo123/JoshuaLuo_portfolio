@@ -11,8 +11,10 @@ A BlackBoxGame class represents the board and game for the players. It is initia
 
 A Ray class is used by the BlackBoxGame class to represent a ray that is shot into the box according to the user's input. Its position as it is "fired" into the box is determined based on the positions of Atoms.
 
-A user interface is provided to run the program. It randomly places 4 Atoms
+A user interface is provided to run the program. It randomly places 4 Atoms and starts the player with 25 points. The player is then presented with an option to shoot a Ray followed by an option to guess an Atom location. The board will the show the user where shot Rays enter/exit with an 'x', and where correctly guessed Atoms are with an 'A'. Under the board will display the player's remaining points and remaining Atoms to find.
+
+The player wins if they guess all 4 Atom locations before their score reaching 0 or less.
 
 - the printed board includes a "border" that is off the board (i.e. not valid inputs for Ray shots and Atom guesses) for representing results of previously shot rays
-- Ray shot location: assumes user inputs an integer
-- Atom guess location: assume user inputs an integer
+- Ray shot location: assumes user inputs are integers
+- Atom guess location: assume user inputs arer integers

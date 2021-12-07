@@ -133,7 +133,7 @@ class BlackBoxGame:
         """
         Prints all of the coordinates guessed for atom locations.
         """
-        print("Past Guesses:")
+        print("Past Atom Guesses:")
         if len(self._atom_guess_mem) == 0:
             print("None")
         else:
@@ -341,10 +341,8 @@ def main():
 
     while game.get_score() > 0 and game.atoms_left() > 0:
         # displays game state
-        game.print_board(False)
+        game.print_board(True)
         print("         Score:", game.get_score(), "       |  ", "Atoms remaining:", game.atoms_left())
-        print()
-        game.print_ray_mem()
         print()
         game.print_atom_guesses()
         print()
@@ -358,8 +356,8 @@ def main():
         if shoot == "y":
             ray_res = False
             while not ray_res:
-                row = int(input("Shoot a Ray from border row: "))
-                column = int(input("Shoot a Ray from border column: "))
+                row = int(input("Enter a row to shoot a Ray: "))
+                column = int(input("Enter a column to shoot a Ray: "))
                 ray_res = game.shoot_ray(row, column)
                 if ray_res is False:
                     print("Invalid border location! Try again.")
@@ -369,12 +367,12 @@ def main():
                 print("Hit atom")
             else:
                 print("Ray exit square: ", ray_res)
-            game.print_board(False)
+            game.print_board(True)
             print("         Score:", game.get_score(), "       |  ", "Atoms remaining:", game.atoms_left())
             print()
-            game.print_ray_mem()
-            print()
             game.print_atom_guesses()
+            print()
+            print("Score: ", game.get_score())
 
         print()
         guess = ""
@@ -386,19 +384,25 @@ def main():
         if guess == "y":
             row = 0;
             column = 0;
-            while not 1 <= row <= 8 and not 1 <= column <= 8:
-                row = int(input("Atom row (1-8): "))
-                column = int(input("Atom column (1-8): "))
-                if not row or not column or (not 1 <= row <= 8 and not 1 <= column <= 8):
+            while not 1 <= row <= 8 or not 1 <= column <= 8:
+                row = int(input("Atom guess row (1-8): "))
+                column = int(input("Atom guess column (1-8): "))
+                if not 1 <= row <= 8 or not 1 <= column <= 8:
                     print("Invalid Atom location! Try again.")
+                    print()
 
             if game.guess_atom(row, column) is True:
-                print("Correct guess!")
+                print("Correct!")
             else:
-                print("Incorrect guess!")
-            input("Press Enter to continue")
+                print("Incorrect!")
+                print()
+            print("Score: ", game.get_score())
 
-        print("--------------------------------------------------------------------")
+        print()
+        input("--Press Enter to continue--")
+        print()
+
+        print("---------------------------------------------------------")
 
     print("Final Score: ", game.get_score())
     if game.get_score() == 0:
