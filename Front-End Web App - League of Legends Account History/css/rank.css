@@ -28,6 +28,10 @@ body {
 	text-decoration: inherit;
 }
 
+#navMenu a:hover {
+	background-color: lightgray;
+}
+
 #rank_emblem {
 	text-align: center;
 }

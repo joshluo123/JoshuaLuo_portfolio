@@ -28,6 +28,10 @@ body {
 	text-decoration: inherit;
 }
 
+#navMenu a:hover {
+	background-color: lightgray;
+}
+
 ul {
 	list-style: none;
 	width: 75%;
