@@ -4,10 +4,10 @@
 
 import random
 
-
 class BlackBoxGame:
     """
-    Class for implementing the Black Box board game. Used with the Ray class to shoot rays through the black box.
+    Class for implementing the Black Box board game.
+    Used with the Ray class to shoot rays through the black box.
     """
 
     # assume atom locations are valid coordinates, don't contain duplicates, and contains at least one tuple
@@ -103,6 +103,8 @@ class BlackBoxGame:
         """
         Prints a text representation of the game board.
         """
+        print("                        Board")
+        print("    0    1    2    3    4    5    6    7    8    9")
         # board[row][column]
         board = []
         for row in range(10):
@@ -124,23 +126,30 @@ class BlackBoxGame:
                 board[self._ray_mem[ray][0]][self._ray_mem[ray][1]] = "x"
 
         for row in range(10):
-            print(board[row])
+            print(row, board[row], row)
+        print("    0    1    2    3    4    5    6    7    8    9")
 
     def print_atom_guesses(self):
         """
         Prints all of the coordinates guessed for atom locations.
         """
         print("Past Guesses:")
-        for coordinate in self._atom_guess_mem:
-            print(coordinate)
+        if len(self._atom_guess_mem) == 0:
+            print("None")
+        else:
+            for coordinate in self._atom_guess_mem:
+                print(coordinate)
 
     def print_ray_mem(self):
         """
         Prints all of the used ray entry/exit coordinates.
         """
-        print("Used ray squares:")
-        for ray_entry in self._ray_mem:
-            print(ray_entry)
+        print("Used Ray squares:")
+        if len(self._ray_mem) == 0:
+            print("None")
+        else:
+            for ray_entry in self._ray_mem:
+                print(ray_entry)
 
 
 class Ray:
@@ -326,57 +335,82 @@ def main():
             atom_locations.append(atom_loc)
 
     game = BlackBoxGame(atom_locations)
-    print("Score: ", game.get_score())
-    print("Atoms remaining: ", game.atoms_left())
+    print()
+    print("Welcome to Joshua Luo's Black Box game.")
+    print()
 
     while game.get_score() > 0 and game.atoms_left() > 0:
-        print("Board:")
+        # displays game state
         game.print_board(False)
-
-        shoot = input("Shoot Ray? (y/n): ")
-        if shoot == "y":
-            row = int(input("Shoot Ray row: "))
-            column = int(input("Shoot Ray column: "))
-            ray_res = game.shoot_ray(row, column)
-            while ray_res is False:
-                print("Invalid row/column")
-                print()
-                row = int(input("Shoot Ray row: "))
-                column = int(input("Shoot Ray column: "))
-                ray_res = game.shoot_ray(row, column)
-            if ray_res is None:
-                print("Hit atom")
-            else:
-                print("Ray exit square: ", ray_res)
-            print("Score: ", game.get_score())
-
-        print()
-
-        print("Atoms remaining: ", game.atoms_left())
-        guess = input("Guess Atom? (y/n): ")
-        if guess == "y":
-            row = int(input("Atom guess row (1-8): "))
-            column = int(input("Atom guess column (1-8): "))
-            if game.guess_atom(row, column) is True:
-                print("Correct guess")
-            else:
-                print("Incorrect guess")
-            print("Score: ", game.get_score())
-
+        print("         Score:", game.get_score(), "       |  ", "Atoms remaining:", game.atoms_left())
         print()
         game.print_ray_mem()
         print()
         game.print_atom_guesses()
         print()
 
-    print("Score: ", game.get_score())
+        # shoot a Ray into the Black Box
+        shoot = ""
+        while shoot != 'y' and shoot != 'n':
+            shoot = input("Shoot a Ray? (y/n): ")
+            if shoot:
+                shoot = shoot[0].lower()
+        if shoot == "y":
+            ray_res = False
+            while not ray_res:
+                row = int(input("Shoot a Ray from border row: "))
+                column = int(input("Shoot a Ray from border column: "))
+                ray_res = game.shoot_ray(row, column)
+                if ray_res is False:
+                    print("Invalid border location! Try again.")
+                    print()
+
+            if ray_res is None:
+                print("Hit atom")
+            else:
+                print("Ray exit square: ", ray_res)
+            game.print_board(False)
+            print("         Score:", game.get_score(), "       |  ", "Atoms remaining:", game.atoms_left())
+            print()
+            game.print_ray_mem()
+            print()
+            game.print_atom_guesses()
+
+        print()
+        guess = ""
+        while guess != 'y' and guess != 'n':
+            guess = input("Guess an Atom location? (y/n): ")
+            if guess:
+                guess = guess[0].lower()
+
+        if guess == "y":
+            row = 0;
+            column = 0;
+            while not 1 <= row <= 8 and not 1 <= column <= 8:
+                row = int(input("Atom row (1-8): "))
+                column = int(input("Atom column (1-8): "))
+                if not row or not column or (not 1 <= row <= 8 and not 1 <= column <= 8):
+                    print("Invalid Atom location! Try again.")
+
+            if game.guess_atom(row, column) is True:
+                print("Correct guess!")
+            else:
+                print("Incorrect guess!")
+            input("Press Enter to continue")
+
+        print("--------------------------------------------------------------------")
+
+    print("Final Score: ", game.get_score())
     if game.get_score() == 0:
         print("Game Over")
     else:
         print("All atoms found")
 
-    print("Complete Board:")
+    print("                      Atom Locations:")
     game.print_board(True)
+
+    print()
+    print("Thanks for playing!")
 
 
 if __name__ == "__main__":
