@@ -2,12 +2,9 @@ from flask import Flask, render_template, request, jsonify
 from db_connector import connect_to_database, execute_query
 import os
 
-# Configuration
-
 app = Flask(__name__)
 
 # Routes
-
 @app.route('/', methods=['GET', 'POST'])
 def root():
 	db_connection = connect_to_database()
