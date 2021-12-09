@@ -18,13 +18,15 @@ On the 'Update/Edit Something' page, the user can change attributes for any of t
 
 Because the displayed information is dynamically generated, any changes to the entities will immediately be present on any subsequent display of entries.
 
+
 File Descriptions:
 
-app.py: Flask server to run the web application and to make the SQL queries to the database
-data_definition_queries.sql: SQL queries for creating each entity table. Followed by some sample data
-data_manipulation_queries.sql: SQL qury outlines for the various queries that that are sent to the databse
-db_connector.py: API for connecting to the database with credentials
-db_credentials.py: user credential information for making a connection to the database
-static: CSS and JavaScript files for the front-end web application
-templates: Jinja web page templates for rendering each route
-wsgi.py: for executing app.py in Flask
+app.py: Flask server to run the web application and to make the SQL queries to the database.
+data_definition_queries.sql: SQL queries for creating each entity table. Followed by some sample data.
+data_manipulation_queries.sql: SQL qury outlines for the various queries that that are sent to the databse.
+db_connector.py: API for connecting to the database with credentials.
+db_credentials.py: user credential information for making a connection to the database.
+design_documentation.pdf: documentation for the relation design of the database. Includes the schema.
+static: CSS and JavaScript files for the front-end web application.
+templates: Jinja web page templates for rendering each route.
+wsgi.py: for executing app.py in Flask.
