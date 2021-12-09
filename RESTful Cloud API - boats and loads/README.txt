@@ -10,7 +10,7 @@ Boats are private entities that may only be created, edited, deleted, and viewed
 
 Loads may be assigned to only one boat. One boat may be assigned any number of loads.
 
-API supports authenticating users for appropriate requests. Loads may be created, edited, viewed, assigned, or removed by any user, even someone who is not authenticated.
+API supports authenticating users for appropriate requests. Boats are private, and may only be accessed by their respective owners/creators (except for assigning/removing loads). Loads are public, and may be created, edited, viewed, assigned, or removed by any user, even someone who is not authenticated.
 
 See 'api_documentation.pdf' for more information on the data model for boats and loads and the route endpoints for the API.
 
