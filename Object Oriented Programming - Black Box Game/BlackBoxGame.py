@@ -327,18 +327,18 @@ class Ray:
 
 
 def main():
-    # randomly create 4 atom locations
+    # Creates the game with 4 random atom locations
     atom_locations = []
     while len(atom_locations) < 4:
         atom_loc = (random.randint(1, 8), random.randint(1, 8))
         if atom_loc not in atom_locations:
             atom_locations.append(atom_loc)
-
     game = BlackBoxGame(atom_locations)
     print()
     print("Welcome to Joshua Luo's Black Box game.")
     print()
 
+    # execute the game until the player runs out of points or guesses the poistion of all the atoms
     while game.get_score() > 0 and game.atoms_left() > 0:
         # displays game state
         game.print_board(True)
@@ -374,6 +374,7 @@ def main():
             print()
             print("Score: ", game.get_score())
 
+        # guess Atom location
         print()
         guess = ""
         while guess != 'y' and guess != 'n':
