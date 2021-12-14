@@ -1,0 +1,1 @@
+int itoa(int number, char * buf, int buf_length);
