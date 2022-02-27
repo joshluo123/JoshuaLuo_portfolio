@@ -338,10 +338,10 @@ def main():
     print("Welcome to Joshua Luo's Black Box game.")
     print()
 
-    # execute the game until the player runs out of points or guesses the poistion of all the atoms
+    # execute the game until the player runs out of points or guesses the position of all the atoms
     while game.get_score() > 0 and game.atoms_left() > 0:
         # displays game state
-        game.print_board(True)
+        game.print_board(False)
         print("         Score:", game.get_score(), "       |  ", "Atoms remaining:", game.atoms_left())
         print()
         game.print_atom_guesses()
