@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="97be476e-6582-4fc1-944f-c8dd62129211" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/object_oriented_programming/BlackBoxGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/object_oriented_programming/BlackBoxGame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,9 @@
       <option name="presentableId" value="Default" />
       <updated>1623954566379</updated>
       <workItem from="1645838994116" duration="103000" />
+      <workItem from="1646409592086" duration="77000" />
+      <workItem from="1646409729357" duration="11000" />
+      <workItem from="1646413297435" duration="14000" />
     </task>
     <servers />
   </component>
