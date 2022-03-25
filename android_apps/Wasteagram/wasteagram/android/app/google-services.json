@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "642621591075",
+    "project_id": "cs492-wastegram-1359c",
+    "storage_bucket": "cs492-wastegram-1359c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642621591075:android:44ab3efc123bdea3716b96",
+        "android_client_info": {
+          "package_name": "com.example.wasteagram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642621591075-jgepb1gbhc9mbaapqlcg075l9cbgov5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHQS7WvOYfQy91fcAR-ixyPeyOAcc8SEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642621591075-jgepb1gbhc9mbaapqlcg075l9cbgov5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642621591075:android:11eb6b0d1536ce8a716b96",
+        "android_client_info": {
+          "package_name": "edu.oregonstate.luojo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642621591075-jgepb1gbhc9mbaapqlcg075l9cbgov5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHQS7WvOYfQy91fcAR-ixyPeyOAcc8SEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642621591075-jgepb1gbhc9mbaapqlcg075l9cbgov5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
