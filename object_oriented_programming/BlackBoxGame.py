@@ -63,7 +63,7 @@ class BlackBoxGame:
             self._atom_guess_mem.add((row, column))  # update atom guess memory
             return True
 
-        # guest must be incorrect
+        # guess must be incorrect
         # if new guess - deduct points
         if (row, column) not in self._atom_guess_mem:
             self._score -= 5
@@ -383,8 +383,8 @@ def main():
                 guess = guess[0].lower()
 
         if guess == "y":
-            row = 0;
-            column = 0;
+            row = 0
+            column = 0
             while not 1 <= row <= 8 or not 1 <= column <= 8:
                 row = int(input("Atom guess row (1-8): "))
                 column = int(input("Atom guess column (1-8): "))
