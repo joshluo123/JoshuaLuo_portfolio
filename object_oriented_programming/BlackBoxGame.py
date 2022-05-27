@@ -157,7 +157,6 @@ class BlackBoxGame:
 def main():
     show_atom_locations = False
 
-
     # Creates the game with 4 random atom locations
     atom_locations = []
     while len(atom_locations) < 4:
@@ -186,7 +185,7 @@ def main():
                 shoot = shoot[0].lower()
         if shoot == "y":
             ray_res = False
-            while not ray_res:
+            while ray_res is False:
                 row = int(input("Enter a row to shoot a Ray: "))
                 column = int(input("Enter a column to shoot a Ray: "))
                 ray_res = game.shoot_ray(row, column)
